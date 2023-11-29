@@ -1,0 +1,11 @@
+.main-canvas{
+  justify-items: center;
+  align-items: center;
+}
+
+.canvas-container {
+  width: 60vw;
+  height: 60vh;
+  background-color: whitesmoke;
+  
+}

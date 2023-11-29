@@ -1,0 +1,10 @@
+/* Monserrat */
+
+@font-face {
+  font-family: monserrat;
+  src: url(//fonts/monserrat/static/Montserrat-Regular.ttf);
+}
+@font-face {
+  font-family: monserratBold;
+  src: url(//fonts/monserrat/static/Montserrat-Bold.ttf);
+}

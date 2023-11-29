@@ -1,0 +1,63 @@
+.btns-continer{
+  padding: 2em;
+  width: 400px;
+  height: 300px;
+}
+.btns-continer form{
+  width: 100%;
+}
+.btns-continer input{
+  width: 300px;
+  height: 2rem;
+}
+.btns-continer .btns-continer-line{
+  /* margin-top: 1rem;
+  margin-bottom: 1rem; */
+  width: 100%;
+  display: flex;
+  padding: 1rem;
+  align-items:center ;
+  justify-content: space-between;
+}
+.btns-continer .btn{
+  height: 50px;
+  width: 50px;
+  border-radius: 1em;
+  box-shadow:inset 1px 1px 1px 1px  white;
+}
+.btns-continer .text-continer{
+  width: 100%;
+}
+.btns-continer .btns-continer-txet{
+  width: 100%;
+  display: flex;
+  padding: 1rem;
+  align-items:center ;
+  justify-content: space-between;
+}
+.btns-continer .btns-font-continer{
+  display: flex;
+  justify-content: space-around;
+}
+.btns-continer .btns-font-continer input{
+  width: 50px;
+  height: 50px;
+  margin-left: 30px;
+}
+
+.btns-continer .btns-continer-line .btn-line-up{
+
+  background: lightblue;
+}
+.btns-continer .btns-continer-line .btn-line-down{
+
+  background: lightblue;
+}
+.btns-continer .btns-continer-line .btn-line-add{
+  background: greenyellow;
+
+}
+.btns-continer .btns-continer-line .line-delete{
+background: red;
+
+}
