@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Memegen</title>
+  </head>
+  <body class="main-layout">
+    <header class="main-header main-layout full" >
+      <div class="flex space-between align-center ">
+        <img src="img/memegen-logo.png" alt="Memegen-logo" class="logo" />
+        <nav class="main-nav hide">
+          <ul class="main-nav-list clean-list flex ">
+            <li><a href="#">Gallery</a></li>
+            <li><a href="#">Meme</a></li>
+            <li><a href="#">About</a></li>
+          </ul>
+        </nav>
+        <button class="btn-toggle-menu" onclick="toggleMenu()"><img src="img/icons-btn/hamburger.svg" alt="menu icon"/></button>
+      </div>
+    </header>
+
+    <main class="">
+      <section class="gallery-continer ">
+        <div class="search-continer">
+          search </div>
+        <img src="img/memes/meme-imgs (square)/1.jpg"/>
+        <img src="img/memes/meme-imgs (square)/2.jpg"/>
+        <img src="img/memes/meme-imgs (square)/3.jpg"/>
+        <img src="img/memes/meme-imgs (square)/4.jpg"/>
+        <img src="img/memes/meme-imgs (square)/5.jpg"/>
+        <img src="img/memes/meme-imgs (square)/6.jpg"/>
+        <img src="img/memes/meme-imgs (square)/7.jpg"/>
+        <img src="img/memes/meme-imgs (square)/8.jpg"/>
+        <img src="img/memes/meme-imgs (square)/9.jpg"/>
+        <img src="img/memes/meme-imgs (square)/10.jpg"/>
+        <img src="img/memes/meme-imgs (square)/11.jpg"/>
+        <img src="img/memes/meme-imgs (square)/12.jpg"/>
+        <img src="img/memes/meme-imgs (square)/13.jpg"/>
+        <img src="img/memes/meme-imgs (square)/14.jpg"/>
+        <img src="img/memes/meme-imgs (square)/15.jpg"/>
+        <img src="img/memes/meme-imgs (square)/16.jpg"/>
+        <img src="img/memes/meme-imgs (square)/17.jpg"/>
+        <img src="img/memes/meme-imgs (square)/18.jpg"/>
+      </section>
+      <section class="flex column">
+        <canvas height="400px" width="400px"></canvas>
+        <div class="btns-continer">
+          <button class="btn" onclick="">up</button>
+          <button class="btn" onclick="">down</button>
+          <button class="btn" onclick="">delete</button>
+        </div>
+      </section>
+    </main>
+    <footer class="main-footer flex column align-center full">
+      <img src="img/memegen-logo.png" alt="Memegen-logo" class="logo" />
+      <small>Create by Boris Kho &copy; 2023
+      </small>
+      <ul class="social-links flex clean-list">
+        <li>
+          <a class="facebook" href="#"><img src="/img/icons-btn/facebook-logo.png.svg" alt="facebook logo"></a>
+        </li>
+        <li>
+          <a class="github" href="#"><img src="/img/icons-btn/github-logo.png.svg" alt="facebook logo"></a>
+        </li>
+        <li>
+          <a class="linkedink" href="#"><img src="/img/icons-btn/linkedin-logo.png.svg" alt="facebook logo"></a>
+        </li>
+
+      </ul>
+    </footer>
+    <script src="js/services/local.storage.js"></script>
+    <script src="js/services/main.services.js"></script>
+    <script src="js/main.controller.js"></script>
+  </body>
+</html>

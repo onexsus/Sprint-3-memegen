@@ -1,0 +1,17 @@
+.gallery-continer{
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+  grid-auto-flow: dense;
+  height: max-content;
+  gap: 20px;
+}
+
+.gallery-continer img{
+  display: block;
+  width: 100%;
+}
+
+.search-continer{
+  grid-row: 1;
+  grid-column: span 2;
+}

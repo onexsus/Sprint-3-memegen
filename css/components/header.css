@@ -1,0 +1,33 @@
+.main-header{
+height: 100px;
+/* background: linear-gradient(45deg,rgb(157, 197, 253),rgb(56, 136, 248)); */
+margin-bottom: 20px;
+/* background-color:rgb(157, 197, 253); */
+background-color:rgb(46, 46, 46);
+}
+
+
+.main-header .logo{
+  height: 80px;
+  width: auto;
+  /* background-color: white; */
+  /* fill-opacity:white; */
+  filter:contrast(0);
+}
+.main-header img{
+  color: white;
+}
+.main-header .btn-toggle-menu{
+height: 60px;
+width: 60px;
+/* background-color: rgb(0, 106, 255); */
+background-color: rgb(104, 104, 104);
+border-radius: 1em;
+border: none;
+cursor: pointer;
+}
+
+.main-header .btn-toggle-menu:hover{
+  
+  background-color: rgb(104, 104, 104,0.8);
+}
