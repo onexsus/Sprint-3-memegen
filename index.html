@@ -88,17 +88,23 @@
           <div class="btns-font-continer">
             <select onchange="onSetFontStyle()">
               <option value="impact">Impact</option>
-              <option value="monserrat">monserrat</option>
+              <option value="monserrat">Monserrat</option>
               <option value="name">Ariel</option>
             </select>
-            <from onchange="onTextLine(ev)">
-              <input type="color" name="background-color"/>
-              <input type="color" name="text-color" />
+            <from onchange="onTextColor(ev)">
+              <div class="form-content">
+                <input class=" btn stroke-color" type="color" name="stroke-color"/>
+                <input class=" btn fill-color" type="color" name="fill-color" />
+              </div>
             </from>
-
           </div>
         </div>
-        </div>
+      </div>
+      <div class="btns-continer-action flex column  ">
+        <button class="btn-action">Save Meme <span class="save-meme"></span></button>
+        <button class="btn-action ">Download Meme <span class="download-meme"></span></button>
+        <button class="btn-action ">Share with your friends <span class="share-meme"></span></button>
+      </div>
       </section>
     </main>
     <footer class="main-footer flex column align-center full">
