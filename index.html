@@ -24,8 +24,19 @@
     </header>
 
     <main class="">
+      <div class="search-continer">
+        <div class="filter-by">
+        <label>
+          <span>Search :</span>
+          <input
+            type="text"
+            placeholder="Enter a book"
+            oninput="onSetFilterBy({text: this.value})"
+          />
+        </label>
+      </div>
+      </div>
       <section class="gallery-continer">
-        <div class="search-continer">search</div>
         <img src="img/memes/meme-imgs (square)/1.jpg" />
         <img src="img/memes/meme-imgs (square)/2.jpg" />
         <img src="img/memes/meme-imgs (square)/3.jpg" />
