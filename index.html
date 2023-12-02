@@ -43,16 +43,16 @@
   </section>
 
 
-  <section class="meme-editor-page" hidden>
+  <section class="meme-editor-page hide" >
     <main>
       <section class="main-canvas flex column">
         <div class="canvas-container">
           <canvas width="400" height="400"></canvas>
         </div>
         <div class="btns-continer flex column align-center">
-          <from onchange="onTextLine(ev)">
-            <input type="text" name="txt" placeholder="create your meme" />
-          </from>
+          <div class="meme-text-input" >
+            <input   type="text" name="txt" placeholder="create your meme" oninput="onAddTxt(this.value)"/>
+          </div>
           <div class="btns-continer-line flex">
             <button class="btn btn-line-up" onclick="onChangeLine(1)"><img src="/img/icons-btn/reshot-icon-up-arrow.svg"/></button>
             <button
@@ -74,27 +74,27 @@
               ><img src="/img/icons-btn/decrease font - icon.svg"/></button>
               <button
               class="btn btn-align-text-left"
-              onclick="onTextAlign(1)"
+              onclick="onTextAlign('left')"
               ><img src="/img/icons-btn/align-to-left.svg"/></button>
               <button
               class="btn btn-align-text-center"
-              onclick="onTextAlign(0)"
+              onclick="onTextAlign('center')"
               ><img src="/img/icons-btn/center-text-alignmen.svg"/></button>
               <button
               class="btn btn-align-text-right"
-              onclick="onTextAlign(-1)"
+              onclick="onTextAlign('right')"
               ><img src="/img/icons-btn/align-to-right.svg"/></button>
             </div>
             <div class="btns-font-continer">
-              <select onchange="onSetFontStyle()">
+              <select onchange="onSetFontStyle(this.value)">
                 <option value="impact">Impact</option>
                 <option value="monserrat">Monserrat</option>
                 <option value="name">Ariel</option>
               </select>
-              <from onchange="onTextColor(ev)">
+              <from >
                 <div class="form-content">
-                  <input class=" btn stroke-color" type="color" name="stroke-color"/>
-                  <input class=" btn fill-color" type="color" name="fill-color" />
+                  <input class=" btn stroke-color" type="color" name="stroke-color" oninput="onSetStrokeStyle(this.value)"  />
+                  <input class=" btn fill-color" type="color" name="fill-color" oninput="onSetFillStyle(this.value)" />
                 </div>
               </from>
             </div>

@@ -101,22 +101,74 @@ var gMeme = {
   selectedLineIdx: 0,
   lines: [
     {
-      txt: "I sometimes eat Falafel",
-      size: 20,
-      color: "red",
+      lineX: 0,
+      lineY:30,
+      txt: "add a text",
+      size: 40,
+      fillStyle: "white",
+      strokeStyle : 'black',
+      textAlign:"center",
+      fontStyle: "Impact",
+      isDrag:false,
     },
   ],
 };
 var userMemes=[]
 var gKeywordSearchCountMap = { funny: 12, cat: 16, baby: 2 };
 
+function setText(txt){
+  gMeme.lines[gMeme.selectedLineIdx].txt=txt
+}
+function setTextLine(diff){
+  if(gMeme.selectedLineIdx===0 && diff===-1){
+    gMeme.selectedLineIdx=gMeme.lines.length-1
+    return
+  }
+  if(gMeme.selectedLineIdx===gMeme.lines.length-1 && diff===1){
+    gMeme.selectedLineIdx=0
+    return
+  }
+  gMeme.selectedLineIdx+=diff
+  return
+}
+
+function createLine(x, y){
+  if(gMeme.lines.length===1) y=y*2-40
+  const line={
+    lineX: x,
+    lineY:y,
+    txt: "add a text",
+    size: 40,
+    fillStyle: "white",
+    strokeStyle : 'black',
+    textAlign:"center",
+    fontStyle: "Impact",
+    isDrag:false,
+  }
+  gMeme.lines.push(line)
+  gMeme.selectedLineIdx=gMeme.lines.length-1
+}
+
+function getImgMeme(){
+  console.log(gMeme.selectedImgId)
+  const idxImg= gImgs.findIndex(img=>img.id===gMeme.selectedImgId)
+  return gImgs[idxImg].url
+}
+
 function getImges(){
   return gImgs
 }
+function getGmeme(){
+  return gMeme
+}
+function updateGmeme(imgId,x){
+ gMeme.selectedImgId=imgId
+ gMeme.lines[0].lineX=x
+}
 
+function _createId(){
 
-
-
+}
 
 function _createMeme(img_url){
   const meme={
@@ -125,6 +177,12 @@ function _createMeme(img_url){
   }
 return meme
 }
+
+
+
+
+// Storge
+
 
 function _saveMemeSearch(){
   saveToStorage(MEMESEARCH_KEY,gKeywordSearchCountMap)
