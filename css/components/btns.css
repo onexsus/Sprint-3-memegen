@@ -13,7 +13,7 @@
 .btns-continer form {
   width: 100%;
 }
-.btns-continer input {
+.btns-continer .meme-text-input input {
   width: 300px;
   height: 2rem;
 }
