@@ -38,6 +38,8 @@ function renderGallery(){
   elGallleryPage.classList.remove('hide')
   const elMemeGalllery=document.querySelector('.memes-gallery-continer')
   elMemeGalllery.classList.add('hide')
+  const elAbout=document.querySelector('.about-continer')
+  elAbout.classList.add('hide')
   const elMemegen =document.querySelector('.meme-editor-page')
   elMemegen.classList.add('hide')
   var strHTML='<div class="upload-box"><input type="file" class="file-input btn" name="image" onchange="onImgInput(event)" accept="image/*" /></div>'
@@ -80,6 +82,8 @@ function onSelectImg(imgUrl) {
   elGallleryPage.classList.add('hide')
   const elMemeGalllery=document.querySelector('.memes-gallery-continer')
   elMemeGalllery.classList.add('hide')
+  const elAbout=document.querySelector('.about-continer')
+  elAbout.classList.add('hide')
   const elMemegen =document.querySelector('.meme-editor-page')
   elMemegen.classList.remove('hide')
   resizeCanvas();
@@ -358,6 +362,8 @@ function  renderSavedMemes(){
   elGallleryPage.classList.add('hide')
   const elMemegen =document.querySelector('.meme-editor-page')
   elMemegen.classList.add('hide')
+  const elAbout=document.querySelector('.about-continer')
+  elAbout.classList.add('hide')
   const elMemeGalllery=document.querySelector('.memes-gallery-continer')
   elMemeGalllery.classList.remove('hide')
   const elGallleryMemes=elMemeGalllery.querySelector('.gallery-continer')
@@ -377,4 +383,15 @@ function toggleMenu() {
 function onSetFilterBy(filterBy) { 
   setFilter(filterBy)
   renderGallery()
+}
+
+function renderAbout(){
+  const elGallleryPage=document.querySelector('.meme-gallery-page')
+  elGallleryPage.classList.add('hide')
+  const elMemegen =document.querySelector('.meme-editor-page')
+  elMemegen.classList.add('hide')
+  const elMemeGalllery=document.querySelector('.memes-gallery-continer')
+  elMemeGalllery.classList.add('hide')
+  const elAbout=document.querySelector('.about-continer')
+  elAbout.classList.remove('hide')
 }
