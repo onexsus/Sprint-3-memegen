@@ -7,9 +7,7 @@
    /* background-color: rgb(59, 59, 59); */
 }
 
-.canvas-container {
-  width: 60vw;
-}
+
 canvas {
   background-color: white;
   border: 1px solid black;

@@ -126,8 +126,7 @@ function getSortedImges(){
   var gImgMemes = gImgs.filter(
     (img) =>img.keywords.some(word=>word.includes(filterBySearch.text)) 
   );
-  console.log(gImgMemes)
-  if(gImgMemes) gImgMemes=gImgs
+  if(gImgMemes.length===0) gImgMemes=gImgs
   return gImgMemes
 }
 

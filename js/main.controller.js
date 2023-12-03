@@ -33,8 +33,14 @@ function addTouchListeners() {
 
 // Gallery
 function renderGallery(){
+  const elGallleryPage=document.querySelector('.meme-gallery-page')
   const elGalllery=document.querySelector('.gallery-continer')
-  var strHTML=''
+  elGallleryPage.classList.remove('hide')
+  const elMemeGalllery=document.querySelector('.memes-gallery-continer')
+  elMemeGalllery.classList.add('hide')
+  const elMemegen =document.querySelector('.meme-editor-page')
+  elMemegen.classList.add('hide')
+  var strHTML='<div class="upload-box"><input type="file" class="file-input btn" name="image" onchange="onImgInput(event)" accept="image/*" /></div>'
   const gImges=getSortedImges()
   gImges.forEach((obj)=>{
     strHTML+=`<img src="${obj.url}" onclick="onSelectImg('${obj.url}')"/>`
@@ -272,6 +278,23 @@ function getEvPos(ev) {
   }
   return pos
 }
+// UPLOAD IMGE
+
+function onImgInput(ev) {
+  loadImageFromInput(ev, onSelectImg)
+}
+// Read the file from the input
+// When done send the image to the callback function
+function loadImageFromInput(ev, onImageReady) {
+  const reader = new FileReader()
+  reader.onload = function (event) {
+      let img = new Image() 
+      img.src = event.target.result 
+      img.onload = () => onImageReady(img.src)
+  }
+  reader.readAsDataURL(ev.target.files[0]) 
+}
+
 
 
 // URL SHARE FCAEBOOK
@@ -337,12 +360,13 @@ function  renderSavedMemes(){
   elMemegen.classList.add('hide')
   const elMemeGalllery=document.querySelector('.memes-gallery-continer')
   elMemeGalllery.classList.remove('hide')
+  const elGallleryMemes=elMemeGalllery.querySelector('.gallery-continer')
   var strHTML=''
   const gMemes=getUserMemes()
   gMemes.forEach((meme)=>{
     strHTML+=`<img src="${meme.url}" onclick="onSelectImg('${meme.url}')"/>`
   })
-  elMemeGalllery.innerHTML=strHTML
+  elGallleryMemes.innerHTML=strHTML
 
 }
 

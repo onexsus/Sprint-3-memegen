@@ -12,6 +12,83 @@
   width: 100%;
 }
 
+.memes-gallery-continer{
+  min-height: 70vh;
+}
+.search-continer{
+  display: flex;
+  flex-direction: column;
+}
+.search-continer .filter-by{
+  display: flex;
+  align-items: center;
+
+  font-family: monospace;
+  font-size: 3em;
+  font-weight: 600;
+  padding: 20px;
+  background-color: rgb(83, 83, 83);
+  border-radius: 1.5em;
+  margin-bottom: 10px;
+}
+.search-continer .filter-by input{
+  font-family: monospace;
+  padding: 1em;
+  height: 50px;
+  width:60%;
+  font-size: 30px;
+  border-radius: 1.5em;
+}
+.search-continer .btns-continer-search{
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 2em;
+}
+.main-search-list{
+  padding: 5px;
+  background-color: rgb(83, 83, 83);
+  border-radius: 2em;
+  width: 100%;
+}
+
+.main-search-list .btn-search{
+  font-family: monospace;
+  text-transform: uppercase;
+  padding: 15px;
+  border-radius: 2em;
+  background: linear-gradient(45deg,rgb(177, 177, 177),rgb(105, 115, 128));
+ font-size: 2em;
+ font-weight: 600;
+}
+.main-search-list .btn-search:hover{
+  background: linear-gradient(45deg,rgba(177, 177, 177, 0.534),rgba(105, 115, 128, 0.493));
+
+}
+
+.upload-box{
+  display: flex;
+  align-items: center;
+  background-color: lightslategray;
+  
+}
+.file-input {
+  background-color: rgb(75, 81, 90);
+  padding: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin: 10px;
+  font-size: 20px;
+  font-weight: 600;
+}
+/* .upload-box input{
+  width: 80%;
+  height: 60px;
+  font-size: large;
+  border: 1px solid black;
+
+} */
 /* .search-continer{
   grid-row: 1;
   grid-column: span 2;

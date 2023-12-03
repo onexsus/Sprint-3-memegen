@@ -10,11 +10,17 @@
     <header class="main-header main-layout full">
       <div class="flex space-between align-center">
         <img src="img/memegen-logo.png" alt="Memegen-logo" class="logo" />
-        <nav class="main-nav ">
+        <nav class="main-nav">
           <ul class="main-nav-list clean-list flex">
-            <li><button class="btn-nav">Gallery </button></li>
-            <li><button class="btn-nav" >Meme</button></li>
-            <li><button class="btn-nav" >About</button></li>
+            <li>
+              <button class="btn-nav" onclick="renderGallery()">Gallery</button>
+            </li>
+            <li>
+              <button class="btn-nav" onclick="renderSavedMemes()">Meme</button>
+            </li>
+            <li>
+              <button class="btn-nav" onclick="renderGallery()">About</button>
+            </li>
           </ul>
         </nav>
         <button class="btn-toggle-menu" onclick="toggleMenu()">
@@ -24,96 +30,159 @@
     </header>
 
     <section class="meme-gallery-page">
-    <main >
-      <div class="search-continer">
-        <div class="filter-by">
-        <label>
-          <span>Search :</span>
-          <input
-            type="text"
-            placeholder="Enter a book"
-            oninput="onSetFilterBy({text: this.value})"
-          />
-        </label>
-      </div>
-      </div>
-      <section class="gallery-continer">
-      </section>
-    </main>
-  </section>
-
-
-  <section class="meme-editor-page hide" >
-    <main>
-      <section class="main-canvas flex column">
-        <div class="canvas-container">
-          <canvas width="400" height="400" ></canvas>
-        </div>
-        <div class="btns-continer flex column align-center">
-          <div class="meme-text-input" >
-            <input   type="text" name="txt" placeholder="create your meme" oninput="onAddTxt(this.value)"/>
+      <main>
+        <div class="search-continer">
+          <div class="filter-by">
+            <label>
+              <span>Search :</span>
+              <input
+                type="text"
+                placeholder="Enter a text"
+                oninput="onSetFilterBy({text: this.value})"
+              />
+            </label>
           </div>
-          <div class="btns-continer-line flex">
-            <button class="btn btn-line-up" onclick="onChangeLine(1)"><img src="/img/icons-btn/reshot-icon-up-arrow.svg"/></button>
-            <button
-            class="btn btn-line-down"
-            onclick="onChangeLine(-1)"
-            ><img src="/img/icons-btn/reshot-icon-down-arrow.svg"/></button>
-            <button class="btn btn-line-add" onclick="onAddLine()"><img src="/img/icons-btn/add.svg"/></button>
-            <button class="btn line-delete" onclick="onDeleteLine()"><img src="/img/icons-btn/trash.svg"/></button>
-          </div>
-          <div class="text-continer">
-            <div class="btns-continer-txet">
-              <button
-              class="btn btn-font-increase"
-              onclick="onFontSize(1)"
-              ><img src="/img/icons-btn/increase font - icon.svg"/></button>
-              <button
-              class="btn btn-font-decrease"
-              onclick="onFontSize(-1)"
-              ><img src="/img/icons-btn/decrease font - icon.svg"/></button>
-              <button
-              class="btn btn-align-text-left"
-              onclick="onTextAlign('right')"
-              ><img src="/img/icons-btn/align-to-left.svg"/></button>
-              <button
-              class="btn btn-align-text-center"
-              onclick="onTextAlign('center')"
-              ><img src="/img/icons-btn/center-text-alignmen.svg"/></button>
-              <button
-              class="btn btn-align-text-right"
-              onclick="onTextAlign('left')"
-              ><img src="/img/icons-btn/align-to-right.svg"/></button>
-            </div>
-            <div class="btns-font-continer">
-              <select onchange="onSetFontStyle(this.value)">
-                <option value="impact">Impact</option>
-                <option value="monserrat">Monserrat</option>
-                <option value="Arial">Ariel</option>
-              </select>
-              <from >
-                <div class="form-content">
-                  <input class=" btn stroke-color" type="color" name="stroke-color" oninput="onSetStrokeStyle(this.value)"  />
-                  <input class=" btn fill-color" type="color" name="fill-color" oninput="onSetFillStyle(this.value)" />
-                </div>
-              </from>
-            </div>
+          <div class="btns-continer-search">
+            <ul class="main-search-list clean-list flex space-between">
+              <li>
+                <button
+                  class="btn-search"
+                  onclick="onSetFilterBy({text: 'funny'})"
+                >
+                  Funny
+                </button>
+              </li>
+              <li>
+                <button
+                  class="btn-search"
+                  onclick="onSetFilterBy({text: 'baby'})"
+                >
+                  baby
+                </button>
+              </li>
+              <li>
+                <button
+                  class="btn-search"
+                  onclick="onSetFilterBy({text: 'famous'})"
+                >
+                  famous
+                </button>
+              </li>
+              <li>
+                <button
+                  class="btn-search"
+                  onclick="onSetFilterBy({text: 'president'})"
+                >
+                  sport
+                </button>
+              </li>
+            </ul>
           </div>
         </div>
-        <div class="btns-continer-action flex column  ">
-          <button class="btn-action" onclick="saveMeme()">Save Meme <span class="save-meme"></span></button>
-          <button class="btn-action">
-            <a   href="#" onclick="downloadImg(this)" download="my-img.jpg"">Download Meme <span class="download-meme"></span>
-            </button>
-          <button class="btn-action " onclick="onUploadImg()">Share with your friends <span class="share-meme"></span></button>
-        </div>
-      </section>
-    </main>
+        <section class="gallery-continer"></section>
+      </main>
     </section>
-    <section class="meme-gallery-page">
-      <main >
-        <section class="memes-gallery-continer gallery-continer hide">
+
+    <section class="meme-editor-page hide">
+      <main>
+        <section class="main-canvas flex column">
+          <div class="canvas-container">
+            <canvas width="400" height="400"></canvas>
+          </div>
+          <div class="btns-continer flex column align-center">
+            <div class="meme-text-input">
+              <input
+                type="text"
+                name="txt"
+                placeholder="create your meme"
+                oninput="onAddTxt(this.value)"
+              />
+            </div>
+            <div class="btns-continer-line flex">
+              <button class="btn btn-line-up" onclick="onChangeLine(1)">
+                <img src="/img/icons-btn/reshot-icon-up-arrow.svg" />
+              </button>
+              <button class="btn btn-line-down" onclick="onChangeLine(-1)">
+                <img src="/img/icons-btn/reshot-icon-down-arrow.svg" />
+              </button>
+              <button class="btn btn-line-add" onclick="onAddLine()">
+                <img src="/img/icons-btn/add.svg" />
+              </button>
+              <button class="btn line-delete" onclick="onDeleteLine()">
+                <img src="/img/icons-btn/trash.svg" />
+              </button>
+            </div>
+            <div class="text-continer">
+              <div class="btns-continer-txet">
+                <button class="btn btn-font-increase" onclick="onFontSize(1)">
+                  <img src="/img/icons-btn/increase font - icon.svg" />
+                </button>
+                <button class="btn btn-font-decrease" onclick="onFontSize(-1)">
+                  <img src="/img/icons-btn/decrease font - icon.svg" />
+                </button>
+                <button
+                  class="btn btn-align-text-left"
+                  onclick="onTextAlign('right')"
+                >
+                  <img src="/img/icons-btn/align-to-left.svg" />
+                </button>
+                <button
+                  class="btn btn-align-text-center"
+                  onclick="onTextAlign('center')"
+                >
+                  <img src="/img/icons-btn/center-text-alignmen.svg" />
+                </button>
+                <button
+                  class="btn btn-align-text-right"
+                  onclick="onTextAlign('left')"
+                >
+                  <img src="/img/icons-btn/align-to-right.svg" />
+                </button>
+              </div>
+              <div class="btns-font-continer">
+                <select onchange="onSetFontStyle(this.value)">
+                  <option value="impact">Impact</option>
+                  <option value="monserrat">Monserrat</option>
+                  <option value="Arial">Ariel</option>
+                </select>
+                <from>
+                  <div class="form-content">
+                    <input
+                      class="btn stroke-color"
+                      type="color"
+                      name="stroke-color"
+                      oninput="onSetStrokeStyle(this.value)"
+                    />
+                    <input
+                      class="btn fill-color"
+                      type="color"
+                      name="fill-color"
+                      oninput="onSetFillStyle(this.value)"
+                    />
+                  </div>
+                </from>
+              </div>
+            </div>
+          </div>
+          <div class="btns-continer-action flex column">
+            <button class="btn-action" onclick="saveMeme()">
+              Save Meme <span class="save-meme"></span>
+            </button>
+            <button class="btn-action">
+              <a href="#" onclick="downloadImg(this)"
+              download="my-img.jpg"">Download Meme
+              <span class="download-meme"></span>
+            </button>
+            <button class="btn-action" onclick="onUploadImg()">
+              Share with your friends <span class="share-meme"></span>
+            </button>
+          </div>
         </section>
+      </main>
+    </section>
+    <section class="memes-gallery-continer meme-gallery-page hide">
+      <main>
+        <section class="gallery-continer"></section>
       </main>
     </section>
     <footer class="main-footer flex column align-center full">
