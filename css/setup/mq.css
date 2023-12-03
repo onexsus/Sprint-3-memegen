@@ -137,3 +137,36 @@
     width: 400px;
   }
 }
+
+
+@media (max-width: 570px){
+  .main-layout {
+    grid-template-columns: 1fr minmax(350px, 1fr) 1fr;
+  }
+  .gallery-continer{
+    grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+
+  }
+  .search-continer .filter-by{
+    font-size: 2em;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+
+  .search-continer .filter-by input{
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 1.5em;
+    /* width: 250px; */
+  }
+  .main-search-list .btn-search{
+    padding: 10px;
+    border-radius: 2em;
+    font-size: 1.3em;
+    /* margin-right: 10px; */
+  }
+
+  
+
+}

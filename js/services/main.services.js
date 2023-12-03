@@ -137,7 +137,6 @@ function getUserMemes(){
 function getSaveMemes(){
   userMemes=_loadMemes()
   if(userMemes&&userMemes.length)return
-  userMemes=[]
 }
 
 function addMeme(imgContent){
