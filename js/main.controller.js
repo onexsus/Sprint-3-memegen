@@ -352,6 +352,7 @@ function downloadImg(elLink) {
 
 function saveMeme(){
   const imgContent = gElCanvas.toDataURL('image/jpeg')
+  console.log(imgContent)
   addMeme(imgContent)
   renderSavedMemes()
 }

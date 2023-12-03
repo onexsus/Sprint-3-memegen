@@ -136,14 +136,21 @@ function getUserMemes(){
 
 function getSaveMemes(){
   userMemes=_loadMemes()
-  if(userMemes&&userMemes.length)return
+  console.log(userMemes)
+  return userMemes
 }
 
 function addMeme(imgContent){
  const savedMeme=_createMeme(imgContent)
  console.log(savedMeme)
  console.log(userMemes)
- userMemes.push(savedMeme)
+ if(userMemes===undefined){
+   userMemes=[savedMeme]
+   
+  }else{
+    userMemes.push(savedMeme)
+  }
+ console.log(userMemes)
  _saveMemes()
 }
 
@@ -250,7 +257,7 @@ function updateGmeme(imgUrl,x){
 
 function _createMeme(img_url){
   const meme={
-    url:img_url,
+    url:img_url
   }
 return meme
 }
@@ -297,8 +304,8 @@ function _saveMemes(){
   saveToStorage(MEMES_KEY,userMemes)
 }
 function _loadMemeSearch(){
-  loadFromStorage(MEMESEARCH_KEY,gKeywordSearchCountMap)
+  return loadFromStorage(MEMESEARCH_KEY,gKeywordSearchCountMap)
 }
 function _loadMemes(){
-  loadFromStorage(MEMES_KEY,userMemes)
+  return loadFromStorage(MEMES_KEY,userMemes)
 }
