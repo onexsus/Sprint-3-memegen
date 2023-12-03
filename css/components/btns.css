@@ -58,11 +58,11 @@
   justify-content: space-between;
 }
 .btns-continer .btns-font-continer input.stroke-color {
-  content: url("/img/icons-btn/text-stroke.svg");
+  content: url("./img/icons-btn/text-stroke.svg");
 }
 
 .btns-continer .btns-font-continer input.fill-color {
-  content: url("/img/icons-btn/paint-board-and-brus.svg");
+  content: url("./img/icons-btn/paint-board-and-brus.svg");
 }
 
 .btns-continer .btns-continer-line .btn-line-up {
