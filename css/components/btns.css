@@ -58,11 +58,11 @@
   justify-content: space-between;
 }
 .btns-continer .btns-font-continer input.stroke-color {
-  content: url("./img/icons-btn/text-stroke.svg");
+  content: url("../img/icons-btn/text-stroke.svg");
 }
 
 .btns-continer .btns-font-continer input.fill-color {
-  content: url("./img/icons-btn/paint-board-and-brus.svg");
+  content: url("../img/icons-btn/paint-board-and-brus.svg");
 }
 
 .btns-continer .btns-continer-line .btn-line-up {
@@ -115,17 +115,17 @@
 .btns-continer-action .btn-action .save-meme {
   height: 20px;
   width: 20px;
-  content: url("/img/icons-btn/reshot-icon-upload.svg");
+  content: url("../img/icons-btn/reshot-icon-upload.svg");
 }
 
 .btns-continer-action .btn-action .download-meme {
   height: 20px;
   width: 20px;
-  content: url("/img/icons-btn/icon-download.svg");
+  content: url("../img/icons-btn/icon-download.svg");
 }
 
 .btns-continer-action .btn-action .share-meme {
   height: 20px;
   width: 20px;
-  content: url("/img/icons-btn/reshot-icon-share-arrow.svg");
+  content: url("../img/icons-btn/reshot-icon-share-arrow.svg");
 }
