@@ -10,11 +10,11 @@
     <header class="main-header main-layout full">
       <div class="flex space-between align-center">
         <img src="img/memegen-logo.png" alt="Memegen-logo" class="logo" />
-        <nav class="main-nav hide">
+        <nav class="main-nav ">
           <ul class="main-nav-list clean-list flex">
-            <li><a href="#">Gallery</a></li>
-            <li><a href="#">Meme</a></li>
-            <li><a href="#">About</a></li>
+            <li><button class="btn-nav">Gallery </button></li>
+            <li><button class="btn-nav" >Meme</button></li>
+            <li><button class="btn-nav" >About</button></li>
           </ul>
         </nav>
         <button class="btn-toggle-menu" onclick="toggleMenu()">
@@ -47,7 +47,7 @@
     <main>
       <section class="main-canvas flex column">
         <div class="canvas-container">
-          <canvas width="400" height="400"></canvas>
+          <canvas width="400" height="400" ></canvas>
         </div>
         <div class="btns-continer flex column align-center">
           <div class="meme-text-input" >
@@ -74,7 +74,7 @@
               ><img src="/img/icons-btn/decrease font - icon.svg"/></button>
               <button
               class="btn btn-align-text-left"
-              onclick="onTextAlign('left')"
+              onclick="onTextAlign('right')"
               ><img src="/img/icons-btn/align-to-left.svg"/></button>
               <button
               class="btn btn-align-text-center"
@@ -82,14 +82,14 @@
               ><img src="/img/icons-btn/center-text-alignmen.svg"/></button>
               <button
               class="btn btn-align-text-right"
-              onclick="onTextAlign('right')"
+              onclick="onTextAlign('left')"
               ><img src="/img/icons-btn/align-to-right.svg"/></button>
             </div>
             <div class="btns-font-continer">
               <select onchange="onSetFontStyle(this.value)">
                 <option value="impact">Impact</option>
                 <option value="monserrat">Monserrat</option>
-                <option value="name">Ariel</option>
+                <option value="Arial">Ariel</option>
               </select>
               <from >
                 <div class="form-content">
@@ -101,15 +101,25 @@
           </div>
         </div>
         <div class="btns-continer-action flex column  ">
-          <button class="btn-action">Save Meme <span class="save-meme"></span></button>
-          <button class="btn-action ">Download Meme <span class="download-meme"></span></button>
-          <button class="btn-action ">Share with your friends <span class="share-meme"></span></button>
+          <button class="btn-action" onclick="saveMeme()">Save Meme <span class="save-meme"></span></button>
+          <button class="btn-action">
+            <a   href="#" onclick="downloadImg(this)" download="my-img.jpg"">Download Meme <span class="download-meme"></span>
+            </button>
+          <button class="btn-action " onclick="onUploadImg()">Share with your friends <span class="share-meme"></span></button>
         </div>
       </section>
     </main>
     </section>
+    <section class="meme-gallery-page">
+      <main >
+        <section class="memes-gallery-continer gallery-continer hide">
+        </section>
+      </main>
+    </section>
     <footer class="main-footer flex column align-center full">
-      <img src="img/memegen-logo.png" alt="Memegen-logo" class="logo" />
+      <a class="logo-link" href="">
+        <img src="img/memegen-logo.png" alt="Memegen-logo" class="logo" />
+      </a>
       <small>Create by Boris Kho &copy; 2023 </small>
       <ul class="social-links flex clean-list">
         <li>

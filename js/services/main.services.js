@@ -2,8 +2,7 @@
 
 const MEMES_KEY= 'memesDB'
 const MEMESEARCH_KEY= 'memeSearchDB'
-
-var gImgs = [
+const gImgs = [
   {
     id: 1,
     url: "img/memes/meme-imgs-square/1.jpg",
@@ -97,8 +96,9 @@ var gImgs = [
 ];
 
 var gMeme = {
-  selectedImgId: 5,
+  url:"",
   selectedLineIdx: 0,
+  isSelected:false,
   lines: [
     {
       lineX: 0,
@@ -110,14 +110,89 @@ var gMeme = {
       textAlign:"center",
       fontStyle: "Impact",
       isDrag:false,
+      pos:{ startX:0 ,endX:0 ,startY:0,endY:0},
     },
   ],
 };
-var userMemes=[]
+var gImgMemes
+var userMemes
+var filterBySearch=''
+getSaveMemes()
 var gKeywordSearchCountMap = { funny: 12, cat: 16, baby: 2 };
+function setFilter(filterBy){
+  filterBySearch=filterBy
+}
+function getSortedImges(){
+  var gImgMemes = gImgs.filter(
+    (img) =>img.keywords.some(word=>word.includes(filterBySearch.text)) 
+  );
+  console.log(gImgMemes)
+  if(gImgMemes) gImgMemes=gImgs
+  return gImgMemes
+}
 
+function getUserMemes(){
+  return userMemes
+}
+
+function getSaveMemes(){
+  userMemes=_loadMemes()
+  if(userMemes&&userMemes.length)return
+  userMemes=[]
+}
+
+function addMeme(imgContent){
+ const savedMeme=_createMeme(imgContent)
+ console.log(savedMeme)
+ console.log(userMemes)
+ userMemes.push(savedMeme)
+ _saveMemes()
+}
+
+function updateLinepos(posX,posY){
+  gMeme.lines[gMeme.selectedLineIdx].lineX=posX
+  gMeme.lines[gMeme.selectedLineIdx].lineY=posY
+}
+
+function setLinePosSize(startX,endX,startY,endY){
+  gMeme.lines[gMeme.selectedLineIdx].pos.startX=startX
+  gMeme.lines[gMeme.selectedLineIdx].pos.endX=endX
+  gMeme.lines[gMeme.selectedLineIdx].pos.startY=startY
+  gMeme.lines[gMeme.selectedLineIdx].pos.endY=endY
+}
+
+function setSelcted(isSelected){
+  gMeme.isSelected=isSelected
+  console.log(gMeme.isSelected)
+}
+
+function setStrokeStyle(colorStroke){
+ gMeme.lines[gMeme.selectedLineIdx].strokeStyle=colorStroke
+}
+
+function setFillStyle(colorFill){
+  gMeme.lines[gMeme.selectedLineIdx].fillStyle=colorFill
+}
+
+
+function setFontStyle(font){
+  gMeme.lines[gMeme.selectedLineIdx].fontStyle=font
+}
+
+function setTextAlign(direction){
+  gMeme.lines[gMeme.selectedLineIdx].textAlign=direction
+}
+
+function setFontSize(diff){
+  if(gMeme.lines[gMeme.selectedLineIdx].size+diff>=0){
+    gMeme.lines[gMeme.selectedLineIdx].size+=diff
+  }
+}
 function setText(txt){
   gMeme.lines[gMeme.selectedLineIdx].txt=txt
+}
+function setSelectedLine(lineIdx){
+  gMeme.selectedLineIdx=lineIdx
 }
 function setTextLine(diff){
   if(gMeme.selectedLineIdx===0 && diff===-1){
@@ -132,7 +207,13 @@ function setTextLine(diff){
   return
 }
 
+function deleteLine(){
+  gMeme.lines.splice(gMeme.selectedLineIdx,1)
+  gMeme.selectedLineIdx=gMeme.lines.length-1
+}
+
 function createLine(x, y){
+  if(gMeme.lines.length===0) y=30
   if(gMeme.lines.length===1) y=y*2-40
   const line={
     lineX: x,
@@ -144,16 +225,17 @@ function createLine(x, y){
     textAlign:"center",
     fontStyle: "Impact",
     isDrag:false,
+    pos:{ startX:0 ,endX:0 ,startY:0,endY:0},
   }
   gMeme.lines.push(line)
   gMeme.selectedLineIdx=gMeme.lines.length-1
 }
 
-function getImgMeme(){
-  console.log(gMeme.selectedImgId)
-  const idxImg= gImgs.findIndex(img=>img.id===gMeme.selectedImgId)
-  return gImgs[idxImg].url
-}
+// function getImgMeme(){
+//   const idxImg= gImgs.findIndex(img=>img.url===gMeme.url)
+//   const url=
+//   return gImgs[idxImg].url
+// }
 
 function getImges(){
   return gImgs
@@ -161,24 +243,50 @@ function getImges(){
 function getGmeme(){
   return gMeme
 }
-function updateGmeme(imgId,x){
- gMeme.selectedImgId=imgId
+function updateGmeme(imgUrl,x){
+ gMeme.url=imgUrl
  gMeme.lines[0].lineX=x
 }
 
-function _createId(){
 
-}
 
 function _createMeme(img_url){
   const meme={
-    id:_createId(),
     url:img_url,
   }
 return meme
 }
 
+//  drag and drop
+function isLineClicked(clickedPos) {
 
+    const { offsetX, offsetY} = clickedPos
+    console.log(offsetX,offsetY)
+    console.log(clickedPos)
+    const gLines =getGmeme().lines
+    const clickedLine = gLines.find(line => {
+        return offsetX >= line.pos.startX && offsetX <= line.pos.endX
+            && offsetY >= line.pos.startY && offsetY <= line.pos.endY
+    })
+    if (clickedLine) {
+      const lineIdx= gLines.findIndex(line=>line===clickedLine)
+      setSelectedLine(lineIdx)
+      setSelcted(true)
+      return true
+    } 
+    setSelcted(false)
+    return false
+  }
+
+
+function setLineDrag(isDrag) {
+  gMeme.lines[gMeme.selectedLineIdx].isDrag = isDrag
+}
+
+function moveLine(dx, dy) {
+  gMeme.lines[gMeme.selectedLineIdx].lineX += dx
+  gMeme.lines[gMeme.selectedLineIdx].lineY += dy
+}
 
 
 // Storge
