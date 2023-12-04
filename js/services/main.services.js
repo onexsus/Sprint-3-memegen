@@ -144,7 +144,7 @@ function addMeme(imgContent){
  const savedMeme=_createMeme(imgContent)
  console.log(savedMeme)
  console.log(userMemes)
- if(userMemes===undefined){
+ if(userMemes===null){
    userMemes=[savedMeme]
    
   }else{
