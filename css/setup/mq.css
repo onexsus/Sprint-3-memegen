@@ -85,6 +85,9 @@
     background: linear-gradient(90deg,rgb(139, 142, 145),rgb(102, 103, 104),rgb(72, 72, 73));
     
   }
+  .main-nav li:nth-child(3) .btn-nav{
+    margin-right: 0;
+  }
   .btn-nav:hover{
     background: linear-gradient(90deg,rgb(219, 219, 219),rgb(195, 195, 196),rgb(146, 146, 146));
     cursor: pointer;
